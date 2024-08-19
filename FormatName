@@ -1,0 +1,49 @@
+import java.util.Scanner; 
+
+public class FormatName {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      String inputLine = scnr.nextLine();
+      String firstName;
+      String middleName;
+      String lastName;
+      
+      int firstSpaceIndex = inputLine.indexOf(' ');
+      int lastSpaceIndex = inputLine.lastIndexOf(' ');
+      
+      if (firstSpaceIndex == -1) {
+         System.out.println("Invalid input format.");
+      }
+      else if (firstSpaceIndex == lastSpaceIndex) {
+         firstName = inputLine.substring(0, firstSpaceIndex);
+         lastName = inputLine.substring(firstSpaceIndex + 1);
+         
+         char firstInitial = firstName.charAt(0);
+         System.out.println(lastName + ", " + firstInitial + ".");
+      } else {
+          firstName = inputLine.substring(0, firstSpaceIndex);
+          middleName = inputLine.substring(firstSpaceIndex + 1, lastSpaceIndex);
+          lastName = inputLine.substring(lastSpaceIndex + 1);
+         
+         char firstInitial = firstName.charAt(0);
+         char middleInitial = middleName.charAt(0);
+         System.out.println(lastName + ", " + firstInitial + "." + middleInitial + ".");
+      }
+   }
+}
+
+/*Write a program whose input is:
+
+firstName middleName lastName
+
+and whose output is:
+
+lastName, firstInitial.middleInitial.*/
+
+/*If the input has the form:
+
+firstName lastName
+
+the output is:
+
+lastName, firstInitial.*/
