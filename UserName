@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class UserName {
+	public static void main(String[] args) {
+	//decalre variables
+		Scanner scnr = new Scanner(System.in);
+		String inputLine = scnr.nextLine();
+		String firstName;
+		String lastName;
+		String numberString;
+		String userName;
+		String firstNamePart;
+		char lastNameInitial;
+		int lastDigit;
+		
+		//find the index positions of the first and last spaces in the input
+		int firstSpaceIndex = inputLine.indexOf(' ');
+		int lastSpaceIndex = inputLine.lastIndexOf(' ');
+		
+		//ensure there are at least two spaces and they aren't the same
+		 if (firstSpaceIndex == -1 || lastSpaceIndex == -1 || firstSpaceIndex == lastSpaceIndex) {
+            System.out.println("Invalid input format.");
+            return;
+        }
+        
+		//extract first name, last name, and number from the input
+		firstName = inputLine.substring(0, firstSpaceIndex);
+		lastName = inputLine.substring(firstSpaceIndex + 1, lastSpaceIndex);
+		numberString = inputLine.substring(lastSpaceIndex + 1);
+		
+		//convert the numberString to an integer so we can get the last digit
+		int number;
+        try {
+            number = Integer.parseInt(numberString);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number format.");
+            return;
+        }
+        
+        //we want the first 6 digits of the first name
+		firstNamePart = firstName.length() > 6 ? firstName.substring(0, 6) : firstName;
+		//we want the first initial of the last name
+		lastNameInitial = lastName.charAt(0);
+		lastDigit = number % 10; //gets last digit of number entered
+		//user name should be the first 6 digits (or less) of the first name, the last name initial, a _ and then the last digit of the number input
+		userName = firstNamePart + lastNameInitial + "_" + lastDigit;
+		
+		//print the results
+		System.out.println("Your login name: " + userName);
+		
+	}
+}
+
+*/Write a program that creates a login name for a user, given the user's first name, last name, and a four-digit integer as input. Output the login name, which is made up of the first six letters of the first name, followed by the first letter of the last name, an underscore (_), and then the last digit of the number (use the % operator). If the first name has less than six letters, then use all letters of the first name. 
+Ex: John Doe 2024 outputs "Your login name: JohnD_4"*/
