@@ -10,23 +10,35 @@ public class FormatName {
       
       int firstSpaceIndex = inputLine.indexOf(' ');
       int lastSpaceIndex = inputLine.lastIndexOf(' ');
-      
+
+//if the first space index is -1, that means there isn't a last name with first name or last name with first and middle name to work with, so it's invalid
       if (firstSpaceIndex == -1) {
          System.out.println("Invalid input format.");
       }
+//if the firstSpaceIndex is equal to the lastSpaceIndex, then they entered a first and last name only
       else if (firstSpaceIndex == lastSpaceIndex) {
+//get the first name by starting at index 0 and ending at the first space
          firstName = inputLine.substring(0, firstSpaceIndex);
+//get the last name by starting at one more than the first space
          lastName = inputLine.substring(firstSpaceIndex + 1);
-         
+//"John Doe" would have one space and John would be firstname and Doe lastName
+//get the first letter of the first name by looking at index 0 of firstName
          char firstInitial = firstName.charAt(0);
+//print Doe, J. for John Doe
          System.out.println(lastName + ", " + firstInitial + ".");
       } else {
+//if the first space index and last space index aren't -1 and aren't equal, they entered a middle name too
+//the firstName will start at index 0 and end at the first space
           firstName = inputLine.substring(0, firstSpaceIndex);
+//the middleName will start one over from the first space and go to the last space
           middleName = inputLine.substring(firstSpaceIndex + 1, lastSpaceIndex);
+//the lastName will start one over from the last space
           lastName = inputLine.substring(lastSpaceIndex + 1);
-         
+ //we get the first initial from firstName index 0        
          char firstInitial = firstName.charAt(0);
+//we get the middle initial from middleName index 0
          char middleInitial = middleName.charAt(0);
+//print out the lastName, firstInitial.MiddleInitial. Ex// John William Doe prints "Doe, J.W."
          System.out.println(lastName + ", " + firstInitial + "." + middleInitial + ".");
       }
    }
