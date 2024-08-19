@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class LeapYear {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      int inputYear;
+      boolean isLeapYear;
+      
+      isLeapYear = false;
+      inputYear = scnr.nextInt();
+      
+      //if it's divisible by 400 with no remainder it's a leap year
+      if (inputYear % 400 == 0) {
+            System.out.println(inputYear + " - leap year");
+         }
+      //if it's divisible by 100 but not by 400, it's not a leap year because century years like 
+      //1800 and 1600 must be divisible by 400 to be a leap year
+      else if (inputYear % 100 == 0) {
+            System.out.println(inputYear + " - not a leap year");
+         }
+      //if the year is divisible by 4, it's a leap year
+      else if (inputYear % 4 == 0) {
+            System.out.println(inputYear + " - leap year");
+         }
+      //if it's not a century year divisible by 400 and it's not a year divisible by 4, it's not a leap year
+       else {
+            System.out.println(inputYear + " - not a leap year");
+         }
+   }
+}
