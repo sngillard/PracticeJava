@@ -12,11 +12,11 @@ public class PrintSeats {
       numColumns = scnr.nextInt();
 
       for (currentRow = 1; currentRow <= numRows; currentRow++) {
-         // Loop through each column
+         //loop through each column
          for (int columnIndex = 0; columnIndex < numColumns; columnIndex++) {
-            // Convert columnIndex to a column letter (e.g., 0 -> 'A', 1 -> 'B', etc.)
+            //convert columnIndex to a column letter (e.g., 0 -> 'A', 1 -> 'B', etc.)
             currentColumnLetter = (char) ('A' + columnIndex);
-            // Print the seat in the format RowColumn with a space
+            //print the seat in the format RowColumn with a space
             System.out.print(currentRow);
             System.out.print(currentColumnLetter);
             System.out.print(" ");
