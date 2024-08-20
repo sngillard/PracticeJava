@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class PrintSeats {
+   public static void main (String [] args) {
+      Scanner scnr = new Scanner(System.in);
+      int numRows;
+      int numColumns;
+      int currentRow;
+      int currentColumn;
+      char currentColumnLetter;
+
+      numRows = scnr.nextInt();
+      numColumns = scnr.nextInt();
+
+      for (currentRow = 1; currentRow <= numRows; currentRow++) {
+         // Loop through each column
+         for (int columnIndex = 0; columnIndex < numColumns; columnIndex++) {
+            // Convert columnIndex to a column letter (e.g., 0 -> 'A', 1 -> 'B', etc.)
+            currentColumnLetter = (char) ('A' + columnIndex);
+            // Print the seat in the format RowColumn with a space
+            System.out.print(currentRow);
+            System.out.print(currentColumnLetter);
+            System.out.print(" ");
+         }
+      }
+
+      System.out.println("");
+   }
+}
+
+/*
+Given numRows and numColumns, print a list of all seats in a theater. Rows are numbered, columns lettered, as in 1A or 3E. Print a space after each seat, including after the last. Use separate print statements to print the row and column. Ex: numRows = 2 and numColumns = 3 prints:
+1A 1B 1C 2A 2B 2C 
+*/
